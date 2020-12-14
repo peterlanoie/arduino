@@ -1,16 +1,18 @@
 #include "rotor.h"
 
+// output pin mappings
 const byte KNOB_ROTA_O = 2;
 const byte KNOB_ROTB_O = 3;
 const byte KNOB_ROTa_O = 4;
 const byte KNOB_ROTb_O = 5;
-const byte KNOB_BUTT_O = 6;
+const byte KNOB_BTN_O = 6;
 
+// input pin mappings
 const byte KNOB_ROTA_I = 7;
 const byte KNOB_ROTB_I = 8;
 const byte KNOB_ROTa_I = 9;
 const byte KNOB_ROTb_I = 10;
-const byte KNOB_BUTT_I = 11;
+const byte KNOB_BTN_I = 11;
 
 const byte BLINKLED = LED_BUILTIN;
 
@@ -23,7 +25,7 @@ Rotor _inner(KNOB_ROTA_I, KNOB_ROTB_I);
 Rotor _outer(KNOB_ROTa_I, KNOB_ROTb_I);
 
 void setup() {
-  for(byte i = KNOB_ROTA_O; i <= KNOB_BUTT_O; i++){
+  for(byte i = KNOB_ROTA_O; i <= KNOB_BTN_O; i++){
     pinMode(i, OUTPUT);
     digitalWrite(i, HIGH);
     delay(100);
@@ -37,18 +39,18 @@ void setup() {
   for(byte i = 7; i <= 11; i++){
     pinMode(i, INPUT);
   }
-  _buttonState = digitalRead(KNOB_BUTT_I);
+  _buttonState = digitalRead(KNOB_BTN_I);
   Serial.begin(9600);
   Serial.println("hello world");
 }
 
 void loop() {
 
-  for(byte i = KNOB_ROTA_I; i <= KNOB_BUTT_I; i++){
+  for(byte i = KNOB_ROTA_I; i <= KNOB_BTN_I; i++){
     digitalWrite(i-5, digitalRead(i));
   }
 
-  byte buttonStateNew = digitalRead(KNOB_BUTT_I);
+  byte buttonStateNew = digitalRead(KNOB_BTN_I);
   if(_buttonState != buttonStateNew){
     if(buttonStateNew == HIGH){
       Serial.println("button PRESSED");
