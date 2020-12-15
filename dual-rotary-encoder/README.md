@@ -1,11 +1,13 @@
-# Knobster encoder
+# Dual rotary encoder
 
-This is sample code for demonstrating the function and operation of a dual encoder with push button as part of the Knobster DIY project.
+This is sample code for demonstrating the function and operation of a dual rotary encoder with push button as part of the Knobster DIY project.
 
 The Knobster is an aviation simulator knob product that mimics knobs often used on aircraft avionics. 
 It's commercially available but can also be built using less expensive parts and some electronics knowledge.
 
 This was my first Arduino project and first time in many years programming in C++ so it also served as a refresher and introduced some things I had not yet learned, particularly those specific to the Arduino environment.
+
+![Schematic](WiringDiagram.jpg)
 
 ## `rotor.h`
 The `rotor.h` header file contains the class prototype for a single rotor. It exposes an arbitrary internal value as well as accepts a function pointer for a rotor change callback.
