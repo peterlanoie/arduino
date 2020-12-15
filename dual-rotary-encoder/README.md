@@ -7,6 +7,8 @@ It's commercially available but can also be built using less expensive parts and
 
 This was my first Arduino project and first time in many years programming in C++ so it also served as a refresher and introduced some things I had not yet learned, particularly those specific to the Arduino environment.
 
+## Wiring schematic
+
 ![Schematic](WiringDiagram.jpg)
 
 ## `rotor.h`
